@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "description": "Standalone responsive interactive WhatsApp-style demo for Axiino Technologies customized for Intura Design Studio",
-  "scripts": {
-    "start": "npx serve .",
-    "build": "node -e \"console.log('Static build successful')\""
-  },
   "keywords": [
     "whatsapp",
     "intura-design-studio",
@@ -16,4 +12,3 @@
   "author": "Axiino Technologies",
   "license": "MIT"
 }
-

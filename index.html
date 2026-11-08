@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Intura Design Studio — WhatsApp AI Concierge | Demo by Axiino Technologies</title>
+  <meta name="description" content="Interactive WhatsApp concept demonstration customized for Intura Design Studio by Axiino Technologies.">
+  <link rel="icon" type="image/jpeg" href="assets/intura-logo.jpg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Top Demo Banner by Axiino Technologies -->
+  <header class="axiino-banner" role="banner">
+    <div class="axiino-banner-left">
+      <span class="axiino-badge">Interactive Concept Demo</span>
+      <div class="axiino-title">
+        <strong>Axiino Technologies</strong>
+        <span class="sep">/</span>
+        <span class="desc">WhatsApp Experience for <strong>Intura Design Studio</strong></span>
+      </div>
+    </div>
+    <div class="axiino-banner-right">
+      <button id="btn-sound-toggle" class="sound-toggle-btn" title="Toggle audio feedback">
+        <span id="sound-icon">🔊</span> <span id="sound-label">Audio On</span>
+      </button>
+      <button id="btn-toggle-view" class="view-btn" title="Switch between Mobile & WhatsApp Web view">
+        <span id="view-icon">💻</span> <span id="view-text">WhatsApp Web View</span>
+      </button>
+      <button id="btn-restart-demo" class="reset-btn" title="Restart the conversation from beginning">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 21h5v-5"/></svg>
+        <span>Restart</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- App Main Wrapper -->
+  <main class="app-container" id="app-container">
+
+    <!-- Phone Frame / Desktop Container -->
+    <div class="phone-frame" id="phone-frame">
+      <!-- Dynamic Island for Mobile Frame -->
+      <div class="dynamic-island">
+        <div class="dynamic-island-camera"></div>
+      </div>
+
+      <div class="phone-screen">
+        
+        <!-- Desktop Sidebar (Visible only in Desktop WhatsApp Web Mode) -->
+        <aside class="desktop-sidebar" aria-label="Chats sidebar">
+          <div class="sidebar-header">
+            <div class="sidebar-user-avatar" title="Homeowner Account">H</div>
+            <div class="sidebar-header-actions">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+            </div>
+          </div>
+          <div class="sidebar-search-box">
+            <div class="sidebar-search-inner">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              <span>Search or start a new chat</span>
+            </div>
+          </div>
+          <div class="sidebar-chat-list">
+            <!-- Active Conversation -->
+            <div class="sidebar-chat-item active">
+              <div class="sidebar-avatar">
+                <img src="assets/intura-logo.jpg" alt="Intura Design Studio">
+              </div>
+              <div class="sidebar-chat-info">
+                <div class="sidebar-chat-top">
+                  <span class="sidebar-chat-name">
+                    Intura Design Studio
+                    <span class="verified-badge" title="Official Verified Business">
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    </span>
+                  </span>
+                  <span class="sidebar-chat-time" id="sidebar-time">Just now</span>
+                </div>
+                <div class="sidebar-chat-snippet" id="sidebar-snippet">Interiors With Aura • Design Enquiry</div>
+              </div>
+            </div>
+
+            <!-- Other Mock Conversations for realism -->
+            <div class="sidebar-chat-item">
+              <div class="sidebar-avatar" style="background: #e0f2fe; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #0284c7;">
+                AC
+              </div>
+              <div class="sidebar-chat-info">
+                <div class="sidebar-chat-top">
+                  <span class="sidebar-chat-name">Architectural Council</span>
+                  <span class="sidebar-chat-time" style="color: #667781;">10:45 AM</span>
+                </div>
+                <div class="sidebar-chat-snippet">Floor plan blueprints approved ✅</div>
+              </div>
+            </div>
+
+            <div class="sidebar-chat-item">
+              <div class="sidebar-avatar" style="background: #fef3c7; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #d97706;">
+                PS
+              </div>
+              <div class="sidebar-chat-info">
+                <div class="sidebar-chat-top">
+                  <span class="sidebar-chat-name">Priya Sharma (Designer)</span>
+                  <span class="sidebar-chat-time" style="color: #667781;">Yesterday</span>
+                </div>
+                <div class="sidebar-chat-snippet">Shared modular kitchen moodboard catalog</div>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <section class="chat-main-wrapper" aria-label="Conversation window">
+          
+          <!-- Mock Phone Status Bar -->
+          <div class="phone-status-bar">
+            <span id="live-phone-clock">9:41</span>
+            <div class="status-bar-icons">
+              <span>5G</span>
+              <span>📶</span>
+              <span>🔋 98%</span>
+            </div>
+          </div>
+
+          <!-- WhatsApp Chat Header -->
+          <div class="wa-chat-header">
+            <div class="wa-header-left" id="header-profile-click">
+              <button class="wa-back-btn" title="Back" aria-label="Back">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+              </button>
+              <div class="wa-avatar-wrap">
+                <img src="assets/intura-logo.jpg" alt="Intura Design Studio Logo">
+                <span class="wa-online-dot"></span>
+              </div>
+              <div class="wa-header-info">
+                <div class="wa-profile-name">
+                  Intura Design Studio
+                  <span class="verified-badge" title="Verified Business Account">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                  </span>
+                </div>
+                <div class="wa-status-text" id="bot-status-indicator">
+                  <span>online</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="wa-header-right">
+              <button class="header-action-icon" title="Video call (concept)" aria-label="Video Call" onclick="triggerCallSimulation('video')">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 8-6 4 6 4V8Z"/><rect width="14" height="12" x="2" y="6" rx="2" ry="2"/></svg>
+              </button>
+              <button class="header-action-icon" title="Voice call (concept)" aria-label="Voice Call" onclick="triggerCallSimulation('voice')">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </button>
+              <button class="header-action-icon" id="btn-header-menu" title="Options" aria-label="Menu" onclick="toggleHeaderMenu()">
+                <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Chat Conversation Scroll Area -->
+          <div class="chat-scroll-area" id="chat-scroll-area" role="log" aria-live="polite">
+            
+            <!-- Encryption Security Banner -->
+            <div class="encryption-notice">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              <span><strong>End-to-End Encrypted.</strong> Axiino Technologies concept demonstration customized for Intura Design Studio.</span>
+            </div>
+
+            <!-- Date Pill -->
+            <div class="date-pill">TODAY</div>
+
+            <!-- Messages will be injected here dynamically -->
+            <div id="messages-container" style="display: flex; flex-direction: column; gap: 12px; width: 100%;"></div>
+
+            <!-- Typing indicator template container -->
+            <div id="typing-indicator-wrap" style="display: none;" class="msg-row incoming">
+              <div class="typing-bubble">
+                <span class="typing-dot"></span>
+                <span class="typing-dot"></span>
+                <span class="typing-dot"></span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Bottom WhatsApp Message Input Bar -->
+          <form class="wa-input-container" id="chat-form" onsubmit="handleUserSubmit(event)">
+            <div class="wa-input-pill">
+              <button type="button" class="input-icon-btn" title="Add emoji" aria-label="Emoji">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" x2="9.01" y1="9" y2="9"/><line x1="15" x2="15.01" y1="9" y2="9"/></svg>
+              </button>
+              
+              <button type="button" class="input-icon-btn" id="btn-attach-file" title="Attach Floor Plan document or photo" aria-label="Attach File">
+                <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l8.57-8.57A4 4 0 1 1 18 8.84l-8.59 8.57a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+              </button>
+
+              <input 
+                type="text" 
+                id="chat-input" 
+                class="chat-input-field" 
+                placeholder="Type a message or select an option..." 
+                autocomplete="off" 
+                aria-label="Type message"
+              />
+            </div>
+
+            <button type="submit" class="send-action-btn" id="send-btn" title="Send message" aria-label="Send">
+              <svg id="mic-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" x2="12" y1="19" y2="22"/></svg>
+              <svg id="send-icon" style="display: none;" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+            </button>
+          </form>
+
+        </section>
+
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Real File Upload Picker (Simulates Floor Plan upload) -->
+  <input type="file" id="file-input-element" accept="image/*,application/pdf" />
+
+  <!-- Blueprint Modal Preview -->
+  <div class="modal-overlay" id="blueprint-modal" onclick="closeBlueprintModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <span class="modal-title" id="modal-floorplan-title">Architectural Floor Plan Preview</span>
+        <button class="modal-close-btn" onclick="closeBlueprintModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <img id="modal-floorplan-img" src="assets/sample-floorplan.svg" alt="Floor plan preview">
+        <p style="font-size: 12px; color: #64748b; margin-top: 10px;">
+          Reviewed by Intura Design Engine • Optimized for spatial planning &amp; turnkey execution
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- WhatsApp Business Profile Info Drawer / Modal -->
+  <div class="modal-overlay" id="business-profile-modal" onclick="closeBusinessProfile(event)">
+    <div class="modal-content" style="max-width: 420px; border-radius: 18px; overflow: hidden;" onclick="event.stopPropagation()">
+      <div class="business-profile-banner">
+        <button class="business-modal-close" onclick="closeBusinessProfile()">&times;</button>
+        <div class="business-profile-avatar-wrap">
+          <img src="assets/intura-logo.jpg" alt="Intura Design Studio">
+        </div>
+      </div>
+      <div class="business-profile-body">
+        <h3 class="biz-name">
+          Intura Design Studio
+          <span class="verified-badge" title="Verified Business">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+          </span>
+        </h3>
+        <p class="biz-slogan">Interiors With Aura</p>
+        <div class="biz-badge-official">Official Business Account</div>
+
+        <div class="biz-detail-list">
+          <div class="biz-detail-item">
+            <span class="biz-icon">🎨</span>
+            <div class="biz-item-col">
+              <span class="biz-item-label">Specialization</span>
+              <span class="biz-item-val">Bespoke Residential, Villas &amp; Modern Turnkey Interiors</span>
+            </div>
+          </div>
+
+          <div class="biz-detail-item">
+            <span class="biz-icon">📍</span>
+            <div class="biz-item-col">
+              <span class="biz-item-label">Design Studio</span>
+              <span class="biz-item-val">Indiranagar &amp; Whitefield, Bengaluru</span>
+            </div>
+          </div>
+
+          <div class="biz-detail-item">
+            <span class="biz-icon">🕒</span>
+            <div class="biz-item-col">
+              <span class="biz-item-label">Studio Consultation Hours</span>
+              <span class="biz-item-val">Monday – Saturday: 9:30 AM – 7:30 PM</span>
+            </div>
+          </div>
+
+          <div class="biz-detail-item">
+            <span class="biz-icon">⭐</span>
+            <div class="biz-item-col">
+              <span class="biz-item-label">Client Promise</span>
+              <span class="biz-item-val">45-Day Turnkey Delivery • 10-Year Material Warranty</span>
+            </div>
+          </div>
+
+          <div class="biz-detail-item">
+            <span class="biz-icon">🔒</span>
+            <div class="biz-item-col">
+              <span class="biz-item-label">Security</span>
+              <span class="biz-item-val">Messages &amp; enquiry details are private and encrypted</span>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="confirm-btn" style="margin-top: 14px;" onclick="closeBusinessProfile()">
+          Return to Conversation
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
+

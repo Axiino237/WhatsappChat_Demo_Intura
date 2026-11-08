@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#e2e8f0" stroke-width="0.75" />
+    </pattern>
+    <style>
+      .wall { stroke: #1e293b; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; fill: none; }
+      .inner-wall { stroke: #334155; stroke-width: 4; fill: none; }
+      .door { stroke: #0284c7; stroke-width: 2; fill: none; stroke-dasharray: 3,3; }
+      .window { stroke: #0284c7; stroke-width: 3; fill: #e0f2fe; }
+      .room-label { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 14px; font-weight: 700; fill: #0f172a; text-anchor: middle; }
+      .dim-label { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 11px; fill: #64748b; text-anchor: middle; }
+      .furniture { fill: #f8fafc; stroke: #94a3b8; stroke-width: 1.5; }
+      .title-box { font-family: 'Segoe UI', system-ui, sans-serif; }
+    </style>
+  </defs>
+
+  <!-- Background Grid -->
+  <rect width="800" height="600" fill="#ffffff" />
+  <rect width="800" height="600" fill="url(#grid)" opacity="0.6" />
+
+  <!-- Outer Walls (Apartment Boundary) -->
+  <rect x="50" y="60" width="700" height="480" class="wall" rx="2" />
+
+  <!-- Balcony Top Left -->
+  <rect x="50" y="60" width="220" height="90" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5" />
+  <text x="160" y="105" class="room-label">WIDE BALCONY</text>
+  <text x="160" y="125" class="dim-label">14'0" x 5'6"</text>
+
+  <!-- Master Bedroom (Top Right) -->
+  <line x1="450" y1="60" x2="450" y2="300" class="inner-wall" />
+  <line x1="450" y1="300" x2="750" y2="300" class="inner-wall" />
+  <!-- Master Bed -->
+  <rect x="540" y="80" width="140" height="130" rx="6" class="furniture" fill="#f1f5f9" />
+  <rect x="560" y="90" width="45" height="30" rx="3" fill="#e2e8f0" stroke="#94a3b8" />
+  <rect x="615" y="90" width="45" height="30" rx="3" fill="#e2e8f0" stroke="#94a3b8" />
+  <text x="610" y="150" class="room-label">MASTER BEDROOM</text>
+  <text x="610" y="170" class="dim-label">14'0" x 16'0" • Wood Finish</text>
+
+  <!-- Attached Master Toilet -->
+  <rect x="630" y="220" width="120" height="80" class="furniture" fill="#e0f2fe" opacity="0.4" stroke="#0284c7" />
+  <text x="690" y="265" class="dim-label" fill="#0284c7">ENSUITE</text>
+
+  <!-- Living & Dining Area (Center) -->
+  <text x="320" y="220" class="room-label" font-size="16px">LIVING &amp; DINING HALL</text>
+  <text x="320" y="240" class="dim-label">24'0" x 15'6" (Double Height Ceiling)</text>
+  <!-- Sofa Set -->
+  <rect x="180" y="270" width="130" height="60" rx="8" class="furniture" />
+  <rect x="200" y="340" width="90" height="35" rx="4" class="furniture" fill="#e2e8f0" />
+  <text x="245" y="362" class="dim-label">Coffee Table</text>
+  <!-- Dining Table -->
+  <rect x="330" y="310" width="80" height="110" rx="6" class="furniture" />
+  <circle cx="315" cy="335" r="8" fill="#cbd5e1" />
+  <circle cx="315" cy="365" r="8" fill="#cbd5e1" />
+  <circle cx="315" cy="395" r="8" fill="#cbd5e1" />
+  <circle cx="425" cy="335" r="8" fill="#cbd5e1" />
+  <circle cx="425" cy="365" r="8" fill="#cbd5e1" />
+  <circle cx="425" cy="395" r="8" fill="#cbd5e1" />
+  <text x="370" y="370" class="dim-label">6-Seater</text>
+
+  <!-- Bedroom 2 (Bottom Right) -->
+  <line x1="450" y1="300" x2="450" y2="540" class="inner-wall" />
+  <rect x="520" y="380" width="130" height="120" rx="6" class="furniture" />
+  <text x="585" y="445" class="room-label">BEDROOM 2</text>
+  <text x="585" y="465" class="dim-label">12'0" x 13'6"</text>
+
+  <!-- Modular Kitchen & Utility (Bottom Left) -->
+  <line x1="50" y1="360" x2="280" y2="360" class="inner-wall" />
+  <line x1="280" y1="360" x2="280" y2="540" class="inner-wall" />
+  <path d="M 60 370 L 260 370 L 260 410 L 100 410 L 100 520 L 60 520 Z" fill="#fed7aa" stroke="#f97316" stroke-width="1.5" />
+  <text x="175" y="440" class="room-label" fill="#c2410c">MODULAR KITCHEN</text>
+  <text x="175" y="460" class="dim-label">10'6" x 11'0" • Island Counter</text>
+
+  <!-- Foyer / Entry -->
+  <line x1="280" y1="480" x2="450" y2="480" class="inner-wall" stroke-dasharray="6,4" />
+  <text x="365" y="515" class="room-label" fill="#475569">FOYER ENTRY</text>
+  <!-- Main Door Arc -->
+  <path d="M 365 540 A 40 40 0 0 1 405 500" class="door" />
+
+  <!-- Blueprint Stamp / Watermark -->
+  <rect x="50" y="10" width="320" height="40" fill="#502b85" rx="4" />
+  <text x="65" y="34" font-family="'Segoe UI', sans-serif" font-size="14px" font-weight="bold" fill="#ffffff">INTURA DESIGN STUDIO</text>
+  <text x="250" y="34" font-family="'Segoe UI', sans-serif" font-size="11px" fill="#fdba74">SAMPLE 3BHK • 1,850 SQ FT</text>
+</svg>
